@@ -2,8 +2,8 @@ import torch
 
 from transformers import PreTrainedTokenizer, PreTrainedModel
 from typing import Union, List
-from src.diffusers_long_prompt_parser.block_of_tokens import BlockOfTokens
-from src.diffusers_long_prompt_parser.prompt_attention_chunker import prompt_attention_chunker
+from diffusers_long_prompt_parser.block_of_tokens import BlockOfTokens
+from diffusers_long_prompt_parser.prompt_attention_chunker import prompt_attention_chunker
 
 GPU_DEVICE = "cuda:0"
 CPU_DEVICE = "cpu"

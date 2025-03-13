@@ -9,9 +9,9 @@
 # https://packaging.python.org/en/latest/tutorials/packaging-projects/#choosing-a-build-backend
 [build-system]
 # A list of packages that are needed to build your package:
-requires = ["setuptools"] # REQUIRED if [build-system] table is used
+requires = ["hatchling"] # REQUIRED if [build-system] table is used
 # The name of the Python object that frontends will use to perform the build:
-build-backend = "setuptools.build_meta" # If not defined, then legacy behavior can happen.
+build-backend = "hatchling.build" # If not defined, then legacy behavior can happen.
 
 
 [project]
@@ -95,7 +95,7 @@ classifiers = [
   "Intended Audience :: Developers",
 
   # Pick your license as you wish
-  "License :: OSI Approved :: Apache 2.0 License",
+  "License :: OSI Approved :: Apache Software License",
 
   # Specify the Python versions you support here. In particular, ensure
   # that you indicate you support Python 3. These classifiers are *not*
