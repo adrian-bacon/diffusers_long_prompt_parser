@@ -7,7 +7,7 @@ class BlockOfTokens:
         :param start_token: the tokenizer start token
         :param pad_token:  the tokenizer pad token
         :param end_token:  the tokenizer end token
-        :param token_block_length: how many tokens should be in the block
+        :param token_block_length: how many tokens should be in the block, not including the start and end tokens
         """
         self.tokens = [pad_token] * (token_block_length + 2)
         self.tokens[0] = start_token
@@ -18,7 +18,7 @@ class BlockOfTokens:
         self.current_number_of_tokens = 0
 
     def __str__(self) -> str:
-        return f"tokens: {self.tokens}\nmultipliers: {self.multipliers}"
+        return f"tokens: {self.tokens}, multipliers: {self.multipliers}"
 
     def __len__(self) -> int:
         return self.current_number_of_tokens
@@ -31,6 +31,8 @@ class BlockOfTokens:
         :param weight: the token weight to add
         :return: self
         """
+        if self.is_full():
+            raise RuntimeError(f"Cannot add token {token} and weight {weight} to block because it is full")
 
         self.tokens[self.current_block_index] = token
         self.multipliers[self.current_block_index] = weight
