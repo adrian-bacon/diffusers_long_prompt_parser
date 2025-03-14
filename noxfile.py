@@ -8,7 +8,7 @@ nox.options.sessions = ["lint"]
 def lint(session):
     session.install("flake8")
     session.run(
-        "flake8", "--exclude", ".nox,*.egg,build,data",
+        "flake8", "--exclude", ".nox,*.egg,build,data,scratch.py",
         "--select", "E,W,F", "."
     )
 

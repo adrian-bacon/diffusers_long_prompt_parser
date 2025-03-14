@@ -1,13 +1,15 @@
 class BlockOfTokens:
 
-    def __init__(self, start_token: int, pad_token: int, end_token: int, token_block_length: int = 75):
+    def __init__(self, start_token: int, pad_token: int, end_token: int,
+                 token_block_length: int = 75):
         """
         This object contains a block of token ids and their weights
 
-        :param start_token: the tokenizer start token
-        :param pad_token:  the tokenizer pad token
-        :param end_token:  the tokenizer end token
-        :param token_block_length: how many tokens should be in the block, not including the start and end tokens
+        Args:
+            start_token (int): the start token of the block
+            pad_token (int): the padding token of the block
+            end_token (int): the end token of the block
+            token_block_length (int): the length of the block
         """
         self.tokens = [pad_token] * (token_block_length + 2)
         self.tokens[0] = start_token
@@ -27,12 +29,13 @@ class BlockOfTokens:
         """
         Add a token to the block
 
-        :param token: the token to add
-        :param weight: the token weight to add
-        :return: self
+        Args:
+        token (int): the token to add
+        weight (float): the weight to add
         """
         if self.is_full():
-            raise RuntimeError(f"Cannot add token {token} and weight {weight} to block because it is full")
+            raise RuntimeError(f"Cannot add token {token} and weight {weight} "
+                               f"to block because it is full")
 
         self.tokens[self.current_block_index] = token
         self.multipliers[self.current_block_index] = weight
@@ -44,6 +47,8 @@ class BlockOfTokens:
     def is_full(self) -> bool:
         """
         Check if the block is full
-        :return: True if the block is full, False otherwise
+
+        Returns:
+            bool: whether the block is full
         """
         return self.current_number_of_tokens == self.token_block_length
