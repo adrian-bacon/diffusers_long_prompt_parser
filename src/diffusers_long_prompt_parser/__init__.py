@@ -1,4 +1,4 @@
-from typing import Union, List, Tuple
+from typing import Tuple
 from torch import Tensor
 from transformers import PreTrainedTokenizer, PreTrainedModel
 from diffusers_long_prompt_parser.long_prompt_parser import LongPromptParserSd1x
