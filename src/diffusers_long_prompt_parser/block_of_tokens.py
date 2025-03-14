@@ -1,9 +1,14 @@
 class BlockOfTokens:
-    """
-    This object contains a block of token ids and their weights
-    """
 
     def __init__(self, start_token: int, pad_token: int, end_token: int, token_block_length: int = 75):
+        """
+        This object contains a block of token ids and their weights
+
+        :param start_token: the tokenizer start token
+        :param pad_token:  the tokenizer pad token
+        :param end_token:  the tokenizer end token
+        :param token_block_length: how many tokens should be in the block
+        """
         self.tokens = [pad_token] * (token_block_length + 2)
         self.tokens[0] = start_token
         self.tokens[-1] = end_token
@@ -19,6 +24,13 @@ class BlockOfTokens:
         return self.current_number_of_tokens
 
     def add_token(self, token: int, weight: float):
+        """
+        Add a token to the block
+
+        :param token: the token to add
+        :param weight: the token weight to add
+        :return: self
+        """
 
         self.tokens[self.current_block_index] = token
         self.multipliers[self.current_block_index] = weight
@@ -28,4 +40,8 @@ class BlockOfTokens:
         return self
 
     def is_full(self) -> bool:
+        """
+        Check if the block is full
+        :return: True if the block is full, False otherwise
+        """
         return self.current_number_of_tokens == self.token_block_length

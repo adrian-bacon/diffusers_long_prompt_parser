@@ -9,6 +9,9 @@ __pycache__/
 # stable diffusion models
 models/
 
+# scratch files
+scratch.py
+
 # Distribution / packaging
 .Python
 build/
