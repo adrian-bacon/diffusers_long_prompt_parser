@@ -34,4 +34,4 @@ def tests(session):
 
     session.install(generated_sdist)
 
-    session.run("py.test", "tests/", *session.posargs)
+    session.run("pytest", "tests/", *session.posargs)
