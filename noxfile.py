@@ -4,7 +4,7 @@ import nox
 nox.options.sessions = ["lint"]
 
 # Define the minimal nox version required to run
-nox.options.needs_version = ">= 2025.2.9"
+# nox.options.needs_version = ">= 2025.2.9"
 
 
 @nox.session
