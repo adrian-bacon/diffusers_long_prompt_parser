@@ -19,7 +19,7 @@ def build_and_check_dists(session):
     # If your project uses README.rst, uncomment the following:
     # session.install("readme_renderer")
 
-    session.run("check-manifest", "--ignore", "noxfile.py,tests/**")
+    session.run("check-manifest", "--ignore", "noxfile.py,scratch.py,tests/**")
     session.run("python", "-m", "build")
     session.run("python", "-m", "twine", "check", "dist/*")
 
