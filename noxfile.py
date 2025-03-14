@@ -1,5 +1,4 @@
 import os
-
 import nox
 
 nox.options.sessions = ["lint"]
