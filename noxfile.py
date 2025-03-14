@@ -24,7 +24,7 @@ def build_and_check_dists(session):
     session.run("python", "-m", "twine", "check", "dist/*")
 
 
-@nox.session(python=["3.12"])
+@nox.session(python=["3.10", "3.11", "3.12", "3.13"])
 def tests(session):
     session.install("pytest")
     build_and_check_dists(session)
