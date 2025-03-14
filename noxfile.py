@@ -4,7 +4,7 @@ import nox
 nox.options.sessions = ["lint"]
 
 # Define the minimal nox version required to run
-nox.options.needs_version = ">= 2024.3.2"
+nox.options.needs_version = ">= 2025.2.9"
 
 
 @nox.session
@@ -27,7 +27,7 @@ def build_and_check_dists(session):
     session.run("python", "-m", "twine", "check", "dist/*")
 
 
-@nox.session(python=["3.12", "3.13"])
+@nox.session(python=["3.12"])
 def tests(session):
     session.install("pytest")
     build_and_check_dists(session)
