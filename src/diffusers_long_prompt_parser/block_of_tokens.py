@@ -20,7 +20,8 @@ class BlockOfTokens:
         self.current_number_of_tokens = 0
 
     def __str__(self) -> str:
-        return f"tokens: {self.tokens}, multipliers: {self.multipliers}"
+        return (f"tokens({len(self.tokens)}): {self.tokens}\n"
+                f"multipliers({len(self.multipliers)}): {self.multipliers}")
 
     def __len__(self) -> int:
         return self.current_number_of_tokens
